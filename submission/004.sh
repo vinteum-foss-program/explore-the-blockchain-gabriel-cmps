@@ -9,4 +9,3 @@ descriptor_with_checksum="${descriptor}#${checksum}"
 address=$(bitcoin-cli deriveaddresses "$descriptor_with_checksum" | jq -r '.[0]')
 echo $address
 
-
