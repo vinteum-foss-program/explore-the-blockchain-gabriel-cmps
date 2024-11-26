@@ -3,8 +3,10 @@
 
 xpub="xpub6Cx5tvq6nACSLJdra1A6WjqTo1SgeUZRFqsX5ysEtVBMwhCCRa4kfgFqaT2o1kwL3esB1PsYr3CUdfRZYfLHJunNWUABKftK2NjHUtzDms2"
 index=100
-descriptor="tr([d34db33f/44'/0'/0']$xpub/$index)"
+descriptor="tr($xpub/$index)"
 checksum=$(bitcoin-cli getdescriptorinfo "$descriptor" | jq -r '.checksum')
 descriptor_with_checksum="${descriptor}#${checksum}"
 address=$(bitcoin-cli deriveaddresses "$descriptor_with_checksum" | jq -r '.[0]')
 echo $address
+
+
